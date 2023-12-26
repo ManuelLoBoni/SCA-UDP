@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UDP_CONTROLModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Areas">
+    <Key>
+      <PropertyRef Name="IdArea" />
+    </Key>
+    <Property Name="IdArea" Type="int" Nullable="false" />
+    <Property Name="NombreArea" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="IdEdificio" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bitacora">
+    <Key>
+      <PropertyRef Name="IdPractica" />
+    </Key>
+    <Property Name="IdPractica" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreActividad" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="IdRegistro" Type="int" Nullable="false" />
+    <Property Name="Observaciones" Type="varchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Carreras">
+    <Key>
+      <PropertyRef Name="IdCarrera" />
+    </Key>
+    <Property Name="IdCarrera" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreCarrera" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="categoria_herramienta">
+    <Key>
+      <PropertyRef Name="IdCategoria" />
+    </Key>
+    <Property Name="IdCategoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+    <Property Name="FechaRegistro" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ControlUsuario">
+    <Key>
+      <PropertyRef Name="IdRegistro" />
+    </Key>
+    <Property Name="IdRegistro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="IdUsuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="HoraEntrada" Type="time" Precision="7" />
+    <Property Name="HoraSalida" Type="time" Precision="7" />
+    <Property Name="TipoActividad" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CantidadAlumnos" Type="int" Nullable="false" />
+    <Property Name="Semestre" Type="int" Nullable="false" />
+    <Property Name="IdCarrera" Type="int" Nullable="false" />
+    <Property Name="Area" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="detalle_prestamo">
+    <Key>
+      <PropertyRef Name="IdDetallePrestamo" />
+    </Key>
+    <Property Name="IdDetallePrestamo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdPrestamo" Type="int" Nullable="false" />
+    <Property Name="IdHerramienta" Type="int" Nullable="false" />
+    <Property Name="Cantidad" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Edificio">
+    <Key>
+      <PropertyRef Name="IdEdificio" />
+    </Key>
+    <Property Name="IdEdificio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreEdificio" Type="varchar" MaxLength="60" Nullable="false" />
+  </EntityType>
+  <EntityType Name="herramienta">
+    <Key>
+      <PropertyRef Name="IdHerramienta" />
+    </Key>
+    <Property Name="IdHerramienta" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+    <Property Name="observaciones" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="FechaRegistro" Type="datetime" />
+    <Property Name="id_marca" Type="int" />
+    <Property Name="id_categoria" Type="int" />
+  </EntityType>
+  <EntityType Name="marca_herramienta">
+    <Key>
+      <PropertyRef Name="IdMarca" />
+    </Key>
+    <Property Name="IdMarca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+    <Property Name="FechaRegistro" Type="datetime" />
+  </EntityType>
+  <EntityType Name="prestamo">
+    <Key>
+      <PropertyRef Name="IdPrestamo" />
+    </Key>
+    <Property Name="IdPrestamo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdUsuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cantidad" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Unidad" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CantidadPU" Type="int" />
+    <Property Name="AreaDeUso" Type="varchar" MaxLength="50" />
+    <Property Name="Area" Type="int" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+    <Property Name="FechaPrestamo" Type="datetime" />
+    <Property Name="FechaDevolucion" Type="date" />
+    <Property Name="DiasDePrestamo" Type="int" Nullable="false" />
+    <Property Name="Notas" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="IdHerramienta" Type="int" Nullable="false" />
+    <Property Name="CalificacionEntrega" Type="int" />
+  </EntityType>
+  <EntityType Name="tipo_usuario">
+    <Key>
+      <PropertyRef Name="IdTipo" />
+    </Key>
+    <Property Name="IdTipo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_tipo" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Apellidos" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Tipo" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Area_Prestamo">
+    <End Role="Areas" Type="Self.Areas" Multiplicity="0..1" />
+    <End Role="prestamo" Type="Self.prestamo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Areas">
+        <PropertyRef Name="IdArea" />
+      </Principal>
+      <Dependent Role="prestamo">
+        <PropertyRef Name="Area" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AreaCU">
+    <End Role="Areas" Type="Self.Areas" Multiplicity="1" />
+    <End Role="ControlUsuario" Type="Self.ControlUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Areas">
+        <PropertyRef Name="IdArea" />
+      </Principal>
+      <Dependent Role="ControlUsuario">
+        <PropertyRef Name="Area" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Carreras">
+    <End Role="Carreras" Type="Self.Carreras" Multiplicity="1" />
+    <End Role="ControlUsuario" Type="Self.ControlUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Carreras">
+        <PropertyRef Name="IdCarrera" />
+      </Principal>
+      <Dependent Role="ControlUsuario">
+        <PropertyRef Name="IdCarrera" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Categoria">
+    <End Role="categoria_herramienta" Type="Self.categoria_herramienta" Multiplicity="0..1" />
+    <End Role="herramienta" Type="Self.herramienta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categoria_herramienta">
+        <PropertyRef Name="IdCategoria" />
+      </Principal>
+      <Dependent Role="herramienta">
+        <PropertyRef Name="id_categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ControlUsuario">
+    <End Role="ControlUsuario" Type="Self.ControlUsuario" Multiplicity="1" />
+    <End Role="Bitacora" Type="Self.Bitacora" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ControlUsuario">
+        <PropertyRef Name="IdRegistro" />
+      </Principal>
+      <Dependent Role="Bitacora">
+        <PropertyRef Name="IdRegistro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Edificio">
+    <End Role="Edificio" Type="Self.Edificio" Multiplicity="1" />
+    <End Role="Areas" Type="Self.Areas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Edificio">
+        <PropertyRef Name="IdEdificio" />
+      </Principal>
+      <Dependent Role="Areas">
+        <PropertyRef Name="IdEdificio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HerramientaDP">
+    <End Role="herramienta" Type="Self.herramienta" Multiplicity="1" />
+    <End Role="detalle_prestamo" Type="Self.detalle_prestamo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="herramienta">
+        <PropertyRef Name="IdHerramienta" />
+      </Principal>
+      <Dependent Role="detalle_prestamo">
+        <PropertyRef Name="IdHerramienta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HerramientaP">
+    <End Role="herramienta" Type="Self.herramienta" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="prestamo" Type="Self.prestamo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="herramienta">
+        <PropertyRef Name="IdHerramienta" />
+      </Principal>
+      <Dependent Role="prestamo">
+        <PropertyRef Name="IdHerramienta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Marca">
+    <End Role="marca_herramienta" Type="Self.marca_herramienta" Multiplicity="0..1" />
+    <End Role="herramienta" Type="Self.herramienta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="marca_herramienta">
+        <PropertyRef Name="IdMarca" />
+      </Principal>
+      <Dependent Role="herramienta">
+        <PropertyRef Name="id_marca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrestamoDP">
+    <End Role="prestamo" Type="Self.prestamo" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="detalle_prestamo" Type="Self.detalle_prestamo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="prestamo">
+        <PropertyRef Name="IdPrestamo" />
+      </Principal>
+      <Dependent Role="detalle_prestamo">
+        <PropertyRef Name="IdPrestamo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tipo">
+    <End Role="tipo_usuario" Type="Self.tipo_usuario" Multiplicity="1" />
+    <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_usuario">
+        <PropertyRef Name="IdTipo" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="Tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="prestamo" Type="Self.prestamo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="prestamo">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usuarioCU">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="ControlUsuario" Type="Self.ControlUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="ControlUsuario">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="UDP_CONTROLModelStoreContainer">
+    <EntitySet Name="Areas" EntityType="Self.Areas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bitacora" EntityType="Self.Bitacora" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Carreras" EntityType="Self.Carreras" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="categoria_herramienta" EntityType="Self.categoria_herramienta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ControlUsuario" EntityType="Self.ControlUsuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="detalle_prestamo" EntityType="Self.detalle_prestamo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Edificio" EntityType="Self.Edificio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="herramienta" EntityType="Self.herramienta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="marca_herramienta" EntityType="Self.marca_herramienta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="prestamo" EntityType="Self.prestamo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipo_usuario" EntityType="Self.tipo_usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Area_Prestamo" Association="Self.FK_Area_Prestamo">
+      <End Role="Areas" EntitySet="Areas" />
+      <End Role="prestamo" EntitySet="prestamo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AreaCU" Association="Self.FK_AreaCU">
+      <End Role="Areas" EntitySet="Areas" />
+      <End Role="ControlUsuario" EntitySet="ControlUsuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Carreras" Association="Self.FK_Carreras">
+      <End Role="Carreras" EntitySet="Carreras" />
+      <End Role="ControlUsuario" EntitySet="ControlUsuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Categoria" Association="Self.FK_Categoria">
+      <End Role="categoria_herramienta" EntitySet="categoria_herramienta" />
+      <End Role="herramienta" EntitySet="herramienta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ControlUsuario" Association="Self.FK_ControlUsuario">
+      <End Role="ControlUsuario" EntitySet="ControlUsuario" />
+      <End Role="Bitacora" EntitySet="Bitacora" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Edificio" Association="Self.FK_Edificio">
+      <End Role="Edificio" EntitySet="Edificio" />
+      <End Role="Areas" EntitySet="Areas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HerramientaDP" Association="Self.FK_HerramientaDP">
+      <End Role="herramienta" EntitySet="herramienta" />
+      <End Role="detalle_prestamo" EntitySet="detalle_prestamo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HerramientaP" Association="Self.FK_HerramientaP">
+      <End Role="herramienta" EntitySet="herramienta" />
+      <End Role="prestamo" EntitySet="prestamo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Marca" Association="Self.FK_Marca">
+      <End Role="marca_herramienta" EntitySet="marca_herramienta" />
+      <End Role="herramienta" EntitySet="herramienta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrestamoDP" Association="Self.FK_PrestamoDP">
+      <End Role="prestamo" EntitySet="prestamo" />
+      <End Role="detalle_prestamo" EntitySet="detalle_prestamo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tipo" Association="Self.FK_Tipo">
+      <End Role="tipo_usuario" EntitySet="tipo_usuario" />
+      <End Role="usuario" EntitySet="usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario" Association="Self.FK_Usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="prestamo" EntitySet="prestamo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usuarioCU" Association="Self.FK_usuarioCU">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="ControlUsuario" EntitySet="ControlUsuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
