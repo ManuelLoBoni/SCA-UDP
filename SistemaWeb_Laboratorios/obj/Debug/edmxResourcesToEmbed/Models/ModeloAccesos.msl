@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="UDP_CONTROLModelStoreContainer" CdmEntityContainer="UDP_CONTROLEntities">
+    <EntitySetMapping Name="Areas">
+      <EntityTypeMapping TypeName="UDP_CONTROLModel.Areas">
+        <MappingFragment StoreEntitySet="Areas">
+          <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+          <ScalarProperty Name="NombreArea" ColumnName="NombreArea" />
+          <ScalarProperty Name="IdEdificio" ColumnName="IdEdificio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bitacora">
+      <EntityTypeMapping TypeName="UDP_CONTROLModel.Bitacora">
+        <MappingFragment StoreEntitySet="Bitacora">
+          <ScalarProperty Name="IdPractica" ColumnName="IdPractica" />
+          <ScalarProperty Name="NombreActividad" ColumnName="NombreActividad" />
+          <ScalarProperty Name="IdRegistro" ColumnName="IdRegistro" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Carreras">
+      <EntityTypeMapping TypeName="UDP_CONTROLModel.Carreras">
+        <MappingFragment StoreEntitySet="Carreras">
+          <ScalarProperty Name="IdCarrera" ColumnName="IdCarrera" />
+          <ScalarProperty Name="NombreCarrera" ColumnName="NombreCarrera" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="categoria_herramienta">
+      <EntityTypeMapping TypeName="UDP_CONTROLModel.categoria_herramienta">
+        <MappingFragment StoreEntitySet="categoria_herramienta">
+          <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ControlUsuario">
+      <EntityTypeMapping TypeName="UDP_CONTROLModel.ControlUsuario">
+        <MappingFragment StoreEntitySet="ControlUsuario">
+          <ScalarProperty Name="IdRegistro" ColumnName="IdRegistro" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="HoraEntrada" ColumnName="HoraEntrada" />
+          <ScalarProperty Name="HoraSalida" ColumnName="HoraSalida" />
+          <ScalarProperty Name="TipoActividad" ColumnName="TipoActividad" />
+          <ScalarProperty Name="CantidadAlumnos" ColumnName="CantidadAlumnos" />
+          <ScalarProperty Name="Semestre" ColumnName="Semestre" />
+          <ScalarProperty Name="IdCarrera" ColumnName="IdCarrera" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="detalle_prestamo">
+      <EntityTypeMapping TypeName="UDP_CONTROLModel.detalle_prestamo">
+        <MappingFragment StoreEntitySet="detalle_prestamo">
+          <ScalarProperty Name="IdDetallePrestamo" ColumnName="IdDetallePrestamo" />
+          <ScalarProperty Name="IdPrestamo" ColumnName="IdPrestamo" />
+          <ScalarProperty Name="IdHerramienta" ColumnName="IdHerramienta" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Edificio">
+      <EntityTypeMapping TypeName="UDP_CONTROLModel.Edificio">
+        <MappingFragment StoreEntitySet="Edificio">
+          <ScalarProperty Name="IdEdificio" ColumnName="IdEdificio" />
+          <ScalarProperty Name="NombreEdificio" ColumnName="NombreEdificio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="herramienta">
+      <EntityTypeMapping TypeName="UDP_CONTROLModel.herramienta">
+        <MappingFragment StoreEntitySet="herramienta">
+          <ScalarProperty Name="IdHerramienta" ColumnName="IdHerramienta" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="id_marca" ColumnName="id_marca" />
+          <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="marca_herramienta">
+      <EntityTypeMapping TypeName="UDP_CONTROLModel.marca_herramienta">
+        <MappingFragment StoreEntitySet="marca_herramienta">
+          <ScalarProperty Name="IdMarca" ColumnName="IdMarca" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="prestamo">
+      <EntityTypeMapping TypeName="UDP_CONTROLModel.prestamo">
+        <MappingFragment StoreEntitySet="prestamo">
+          <ScalarProperty Name="IdPrestamo" ColumnName="IdPrestamo" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Unidad" ColumnName="Unidad" />
+          <ScalarProperty Name="CantidadPU" ColumnName="CantidadPU" />
+          <ScalarProperty Name="AreaDeUso" ColumnName="AreaDeUso" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="FechaPrestamo" ColumnName="FechaPrestamo" />
+          <ScalarProperty Name="FechaDevolucion" ColumnName="FechaDevolucion" />
+          <ScalarProperty Name="DiasDePrestamo" ColumnName="DiasDePrestamo" />
+          <ScalarProperty Name="Notas" ColumnName="Notas" />
+          <ScalarProperty Name="IdHerramienta" ColumnName="IdHerramienta" />
+          <ScalarProperty Name="CalificacionEntrega" ColumnName="CalificacionEntrega" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipo_usuario">
+      <EntityTypeMapping TypeName="UDP_CONTROLModel.tipo_usuario">
+        <MappingFragment StoreEntitySet="tipo_usuario">
+          <ScalarProperty Name="IdTipo" ColumnName="IdTipo" />
+          <ScalarProperty Name="nombre_tipo" ColumnName="nombre_tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuario">
+      <EntityTypeMapping TypeName="UDP_CONTROLModel.usuario">
+        <MappingFragment StoreEntitySet="usuario">
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

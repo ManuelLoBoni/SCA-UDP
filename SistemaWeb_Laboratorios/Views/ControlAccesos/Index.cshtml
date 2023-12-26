@@ -1,0 +1,132 @@
+﻿@model IEnumerable<SistemaWeb_Laboratorios.Models.ViewModels.VistaControlUsuario>
+
+@{
+    ViewBag.Title = "Control de Accesos";
+}
+
+<h2>Control de Accesos</h2>
+
+<p>
+    @Html.ActionLink("Registrar", "Create", "", new { @class = "btn btn-success" })
+</p>
+<table class="table" id="miTabla">
+    <tr class="header-row">
+        <th id="fechaHeader" class="sortable">
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th class="sortable">
+            @Html.DisplayNameFor(model => model.IdUsuario)
+        </th>
+        <th class="sortable">
+            @Html.DisplayNameFor(model => model.HoraEntrada)
+        </th>
+        <th class="sortable">
+            @Html.DisplayNameFor(model => model.HoraSalida)
+        </th>
+        <th class="sortable">
+            @Html.DisplayNameFor(model => model.TipoActividad)
+        </th>
+        <th class="sortable">
+            @Html.DisplayNameFor(model => model.CantidadAlumnos)
+        </th>
+        <th class="sortable">
+            @Html.DisplayNameFor(model => model.Semestre)
+        </th>
+        <th class="sortable">
+            @Html.DisplayNameFor(model => model.IdCarrera)
+        </th>
+        <th class="sortable">
+            @Html.DisplayNameFor(model => model.Area)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdUsuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoraEntrada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoraSalida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoActividad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CantidadAlumnos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Semestre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCarrera)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Area)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.IdRegistro }, new { @class = "btn btn-warning" }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.IdRegistro }, new { @class = "btn btn-primary" }) |
+                @Html.ActionLink("Borrar", "Delete", new { id = item.IdRegistro }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@*@section Scripts {
+
+    <script>
+        $(document).ready(function () {
+            $('#miTabla th.sortable').click(function () {
+                var table = $('#miTabla');
+                var index = $(this).index();
+                var isAscending = $(this).hasClass('asc');
+
+                table.find('th').removeClass('asc desc');
+                $(this).addClass(isAscending ? 'desc' : 'asc');
+
+                var rows = table.find('tbody tr').get();
+                rows.sort(function (a, b) {
+                    var x = $(a).children('td').eq(index).text().toUpperCase();
+                    var y = $(b).children('td').eq(index).text().toUpperCase();
+                    return isAscending ? (x > y ? 1 : -1) : (x < y ? 1 : -1);
+                });
+
+                $.each(rows, function (index, row) {
+                    table.children('tbody').append(row);
+                });
+            });
+        });
+    </script>
+
+}
+
+@section Styles{
+    <style>
+        #miTabla th.sortable {
+            cursor: pointer;
+            user-select: none;
+        }
+
+            #miTabla th.sortable:hover {
+                background-color: #f2f2f2;
+            }
+
+            #miTabla th.sortable.asc::after {
+                content: ' ▲';
+            }
+
+            #miTabla th.sortable.desc::after {
+                content: ' ▼';
+            }
+    </style>
+
+}*@
